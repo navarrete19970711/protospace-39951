@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to "/prototypes/#{@comment.prototype.id}"
     else
-      flash.now[:alert] = "Failed to create comment."
+      @prototype = Prototype.find(params[:id])
       render "prototypes/show"
     end
   end
